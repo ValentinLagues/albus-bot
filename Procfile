@@ -1,1 +1,1 @@
-worker: node deploy-commands.js app.js
+worker: node app.js

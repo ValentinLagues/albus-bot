@@ -25,6 +25,10 @@ client.on("interactionCreate", async (interaction) => {
     await interaction.reply("NON");
   } else if (commandName === "albus") {
     await interaction.reply("Alors ça....");
+  } else if (commandName === "lenz") {
+    await interaction.reply(
+      "Vive la droite qui privatisent des entreprises publics profitable ( ex fdj adp) et renfloue des entreprises privées dans le rouge quel belle gestion . Privatisons les profits et mutualisons les pertes. Merci aussi de vendre nos fleurons industrielles de rendre les autoroutes payantes à prix exorbitant pour le contribuable .  Vraiment bien négocier ça encore. Merci de nous mettre en concurrence avec le monde entier on adore !!! Merci pour la deregulation financière fabuleux.  Et quel Audace en matière écologique du jamais vu ! Quel humanisme lors de la manifpourtous ! Non franchement la droite française"
+    );
   }
 });
 

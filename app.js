@@ -1,4 +1,3 @@
-// Require the necessary discord.js classes
 import { Client, Intents } from "discord.js";
 import dotenv from "dotenv";
 dotenv.config();

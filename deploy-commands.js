@@ -16,6 +16,7 @@ const commands = [
   new SlashCommandBuilder().setName("patxi").setDescription("Connard !"),
   new SlashCommandBuilder().setName("montrer").setDescription("bla-bla"),
   new SlashCommandBuilder().setName("gregory").setDescription("delire"),
+  new SlashCommandBuilder().setName("lenz").setDescription("gauchiste"),
 ].map((command) => command.toJSON());
 
 const rest = new REST({ version: "9" }).setToken(token);

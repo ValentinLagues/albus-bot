@@ -5,7 +5,8 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "dev": "nodemon deploy-commands.js"
   },
   "author": "NinjasDC",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "@discordjs/builders": "^0.6.0",
     "@discordjs/rest": "^0.4.1",
     "axios": "^0.26.1",
+    "discord-api-types": "^0.32.1",
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
     "got": "^12.0.2",

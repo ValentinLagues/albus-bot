@@ -1,64 +1,32 @@
-// const Discord = require("discord.js");
-// require("dotenv").config();
+// Require the necessary discord.js classes
+import { Client, Intents } from "discord.js";
+import dotenv from "dotenv";
+dotenv.config();
 
-// const { Client, Intents } = require("discord.js");
-
-// const myIntents = new Intents();
-// myIntents.add(
-//   Intents.FLAGS.GUILD_MESSAGES,
-//   Intents.FLAGS.GUILDS,
-//   Intents.FLAGS.GUILD_BANS,
-//   Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS,
-//   Intents.FLAGS.GUILD_INVITES
-// );
-
-// const client = new Client({ intents: myIntents });
-
-// client.once("ready", () => {
-//   console.log("Bienvenue à Xarxaroth !!!");
-// });
-
-// client.login(process.env.DISCORD_TOKEN);
-
-// client.on("messageCreate", (msg) => {
-//   if (msg.content === "Albus ?") {
-//     msg.reply("Alors ça !!!");
-//   }
-//   if (msg.content === "Patxi ?") {
-//     msg.reply("Connard !!!");
-//   }
-// });
-
-const fs = require("fs");
-const { Client, Collection, Intents } = require("discord.js");
-require("dotenv").config();
-
-const handleCommand = require("./helpers/command");
-
+// Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
-client.commands = new Collection();
-const commandFiles = fs
-  .readdirSync("./commands")
-  .filter((file) => file.endsWith(".js"));
-
-for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
-  client.commands.set(command.data.name, command);
-}
-
+// When the client is ready, run this code (only once)
 client.once("ready", () => {
-  console.log("Bienvenue à Xarxaroth !");
+  console.log("Ready!");
 });
 
-client.on("messageCreate", (msg) => {
-  if (msg.content === "Albus ?") {
-    msg.reply("Alors ça !!!");
+// Interactions with "/" commands
+client.on("interactionCreate", async (interaction) => {
+  if (!interaction.isCommand()) return;
+
+  const { commandName } = interaction;
+
+  if (commandName === "gregory") {
+    await interaction.reply("Non mais les gars, c'est un délire là !");
+  } else if (commandName === "patxi") {
+    await interaction.reply("Connard !");
+  } else if (commandName === "montrer") {
+    await interaction.reply("NON");
+  } else if (commandName === "albus") {
+    await interaction.reply("Alors ça....");
   }
 });
 
-client.on("interactionCreate", async (interaction) => {
-  if (interaction.isCommand()) handleCommand(client, interaction);
-});
-
-client.login(process.env.DISCORD_TOKEN);
+// Login to Discord with your client's token
+client.login(process.env.TOKEN);

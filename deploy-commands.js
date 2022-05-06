@@ -1,59 +1,26 @@
-// import { readdirSync } from "fs";
-// import { REST } from "@discordjs/rest";
-// import { Routes } from "discord-api-types/v9";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { REST } from "@discordjs/rest";
+import { Routes } from "discord-api-types/v9";
+import dotenv from "dotenv";
+dotenv.config();
 
-// const commands = [];
-// const commandFiles = readdirSync("./commands").filter((file) =>
-//   file.endsWith(".js")
-// );
+const clientId = process.env.CLIENT_ID;
+const guildId = process.env.GUILD_ID;
+const token = process.env.TOKEN;
 
-// for (const file of commandFiles) {
-//   const command = require(`./commands/${file}`);
-//   commands.push(command.data.toJSON());
-// }
+const commands = [
+  new SlashCommandBuilder()
+    .setName("ping")
+    .setDescription("Replies with pong!"),
+  new SlashCommandBuilder().setName("albus").setDescription("alors ça"),
+  new SlashCommandBuilder().setName("patxi").setDescription("Connard !"),
+  new SlashCommandBuilder().setName("montrer").setDescription("bla-bla"),
+  new SlashCommandBuilder().setName("gregory").setDescription("delire"),
+].map((command) => command.toJSON());
 
-// const rest = new REST({ version: "9" }).setToken(token);
+const rest = new REST({ version: "9" }).setToken(token);
 
-// (async () => {
-//   try {
-//     await rest.put(Routes.applicationGuildCommands(clientId, guildId), {
-//       body: commands,
-//     });
-
-//     console.log("Successfully registered application commands.");
-//   } catch (error) {
-//     console.error(error);
-//   }
-// })();
-
-const fs = require("fs");
-const { REST } = require("@discordjs/rest");
-const { Routes } = require("discord-api-types/v9");
-// const { clientId, guildId, token } = require("./config.json");
-require("dotenv").config();
-
-const commands = [];
-const commandFiles = fs
-  .readdirSync("./commands")
-  .filter((file) => file.endsWith(".js"));
-
-for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
-  commands.push(command.data.toJSON());
-}
-
-const rest = new REST({ version: "9" }).setToken(process.env.DISCORD_TOKEN);
-
-(async () => {
-  try {
-    await rest.put(
-      Routes.applicationGuildCommands(process.env.APP_ID, process.env.GUILD_ID),
-      {
-        body: commands,
-      }
-    );
-    console.log("Les commandes ont étés enregistrées !");
-  } catch (error) {
-    console.error(error);
-  }
-})();
+rest
+  .put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
+  .then(() => console.log("Successfully registered application commands."))
+  .catch(console.error);

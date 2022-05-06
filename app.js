@@ -47,7 +47,7 @@ client.on("interactionCreate", async (interaction) => {
   } else if (commandName === "patxi") {
     await interaction.reply("Connard !");
   } else if (commandName === "bonjour") {
-    await interaction.reply("Bonjpour à tous");
+    await interaction.reply("Bonjour à tous");
   } else if (commandName === "albus") {
     await interaction.reply("Alors ça....");
   } else if (commandName === "lenz") {

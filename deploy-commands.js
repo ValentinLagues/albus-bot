@@ -14,7 +14,7 @@ const commands = [
     .setDescription("Replies with pong!"),
   new SlashCommandBuilder().setName("albus").setDescription("albus"),
   new SlashCommandBuilder().setName("patxi").setDescription("patxi"),
-  new SlashCommandBuilder().setName("montrer").setDescription("montrer"),
+  new SlashCommandBuilder().setName("bonjour").setDescription("bonjour"),
   new SlashCommandBuilder().setName("gregory").setDescription("gregory"),
   new SlashCommandBuilder().setName("lenz").setDescription("lenz"),
 ].map((command) => command.toJSON());

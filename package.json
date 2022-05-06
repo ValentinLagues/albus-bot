@@ -1,25 +1,4 @@
 {
-<<<<<<< HEAD
-    "name": "albus",
-    "version": "1.0.0",
-    "description": "The crypto-wizard",
-    "main": "app.js",
-    "scripts": {
-        "start": "nodemon app.js"
-    },
-    "author": "NinjasDC",
-    "license": "ISC",
-    "dependencies": {
-        "@discordjs/builders": "^0.13.0",
-        "@discordjs/rest": "^0.4.1",
-        "discord-api-types": "^0.32.1",
-        "discord.js": "^13.1.0",
-        "dotenv": "^10.0.0"
-    },
-    "devDependencies": {
-        "nodemon": "^2.0.16"
-    }
-=======
   "name": "albus",
   "version": "1.0.0",
   "description": "The crypto-wizard",
@@ -45,5 +24,4 @@
   "devDependencies": {
     "nodemon": "^2.0.16"
   }
->>>>>>> 1ec2ee93bfaa3fd2e3207df72c45f9dc2bacbaa6
 }

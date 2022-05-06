@@ -12,12 +12,14 @@ const commands = [
   new SlashCommandBuilder()
     .setName("ping")
     .setDescription("Replies with pong!"),
-  new SlashCommandBuilder().setName("albus").setDescription("alors ça"),
-  new SlashCommandBuilder().setName("patxi").setDescription("Connard !"),
-  new SlashCommandBuilder().setName("montrer").setDescription("bla-bla"),
-  new SlashCommandBuilder().setName("gregory").setDescription("delire"),
-  new SlashCommandBuilder().setName("lenz").setDescription("gauchiste"),
+  new SlashCommandBuilder().setName("albus").setDescription("albus"),
+  new SlashCommandBuilder().setName("patxi").setDescription("patxi"),
+  new SlashCommandBuilder().setName("montrer").setDescription("montrer"),
+  new SlashCommandBuilder().setName("gregory").setDescription("gregory"),
+  new SlashCommandBuilder().setName("lenz").setDescription("lenz"),
 ].map((command) => command.toJSON());
+
+export default commands;
 
 const rest = new REST({ version: "9" }).setToken(token);
 

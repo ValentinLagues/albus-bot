@@ -1,13 +1,39 @@
 import { Client, Intents } from "discord.js";
 import dotenv from "dotenv";
 dotenv.config();
+import commands from "./deploy-commands.js";
 
 // Create a new client instance
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+// const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+});
+
+const servers = [
+  "971685052599656449",
+  "888739366590107678",
+  "962034321345114142",
+];
 
 // When the client is ready, run this code (only once)
 client.once("ready", () => {
   console.log("Alors ça!");
+
+  for (const server of servers) {
+    commands.map((command) => {
+      client.api
+        .applications(client.user.id)
+        .guilds(server)
+        .commands.post({
+          data: {
+            name: command.name,
+            description: command.description,
+            options: command.options,
+          },
+        });
+      console.log(`${command.name} ajoutée`);
+    });
+  }
 });
 
 // Interactions with "/" commands

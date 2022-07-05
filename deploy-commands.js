@@ -17,6 +17,7 @@ const commands = [
   new SlashCommandBuilder().setName("bonjour").setDescription("bonjour"),
   new SlashCommandBuilder().setName("gregory").setDescription("gregory"),
   new SlashCommandBuilder().setName("lenz").setDescription("lenz"),
+  new SlashCommandBuilder().setName("hehehe").setDescription("hehehe"),
 ].map((command) => command.toJSON());
 
 export default commands;

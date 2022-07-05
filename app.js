@@ -91,7 +91,7 @@ client.on("interactionCreate", async (interaction) => {
     await interaction.reply("Bonjour à tous");
   } else if (commandName === "albus") {
     await interaction.reply("Alors ça....");
-  } else if (commandName === "héhéhé") {
+  } else if (commandName === "hehehe") {
     await interaction.replay(hehehe);
   } else if (commandName === "lenz") {
     await interaction.reply(
